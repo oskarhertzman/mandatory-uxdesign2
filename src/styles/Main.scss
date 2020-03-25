@@ -1,0 +1,23 @@
+
+@import "./Variables";
+
+.Main {
+  &__container {
+    @include centerer;
+
+    button {
+      background-color: $MainTheme;
+    }
+  }
+  &__welcome {
+    color: $MainTheme;
+    text-align: center;
+    font-size: 96px;
+  }
+  &__helper  {
+    color: $MainTheme;
+    text-align: center;
+    font-size: 32px;
+
+  }
+}
