@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Navbar from '../components/Navbar.js';
 import Api from '../api/Api.js';
-import {MainTheme} from '../themes/Theme.js'
+import { MainTheme } from '../themes/Theme.js'
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import '../styles/Main.scss';
