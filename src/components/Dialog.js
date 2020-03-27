@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -12,19 +12,26 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function DialogSlide({numCorrect, quizLength}) {
-  const [open, setOpen] = React.useState(false);
+export default function DialogSlide({numIncorrect, numCorrect, quizLength}) {
+  const [open, setOpen] = useState(false);
+  const [localGames, setLocalGames] = useState(parseInt(localStorage.getItem('games_played'),10) || '');
+  const [localCorrect, setLocalCorrect] = useState(parseInt(localStorage.getItem('correct_answers'),10) || '');
+  const [localIncorrect, setLocalIncorrect] = useState(parseInt(localStorage.getItem('incorrect_answers'),10) || '');
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
 
+   const handleClickOpen = () => {
+     let totalGames = localGames + 1;
+     let totalCorrect = numCorrect + localCorrect;
+     let totalInCorrect = numIncorrect + localIncorrect;
+     localStorage.setItem('games_played', totalGames);
+     localStorage.setItem('correct_answers', totalCorrect);
+     localStorage.setItem('incorrect_answers', totalInCorrect);
+     setOpen(true);
+   };
 
   const handleClose = () => {
     setOpen(false);
   };
-
-
 
   return (
     <div>

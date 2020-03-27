@@ -10,6 +10,10 @@ h1, h3 {
   font-family: 'Indie Flower', cursive;
 }
 
+h2, legend {
+  font-family: 'Roboto';
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

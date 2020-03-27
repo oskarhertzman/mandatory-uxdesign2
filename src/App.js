@@ -6,6 +6,7 @@ import About from './pages/About.js';
 import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 import { HelmetProvider } from 'react-helmet-async';
 import 'typeface-roboto';
+import './styles/App.scss';
 function App() {
 
   let redirect;
@@ -14,6 +15,7 @@ function App() {
   }
 
   return (
+    <div className="App">
     <HelmetProvider>
        <Router>
          {redirect}
@@ -23,6 +25,7 @@ function App() {
          <Route path="/about" component={About} />
      </Router>
    </HelmetProvider>
+ </div>
   );
 }
 
