@@ -34,7 +34,7 @@ export default function Navbar({page}) {
  const classes = useStyles();
   return (
       <div className={classes.root}>
-      <AppBar className={classes.appBar} position="static">
+      <AppBar className={classes.appBar} position="sticky">
         <Toolbar variant="dense">
           <IconButton onClick={handleClick} edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />

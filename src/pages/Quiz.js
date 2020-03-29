@@ -2,6 +2,7 @@ import React, {useState, useEffect, useMemo} from 'react';
 import { trackPromise } from 'react-promise-tracker';
 import Shuffle from '../utilities/Shuffle.js';
 import Navbar from '../components/Navbar.js';
+import DrawerLeft from '../components/Drawer.js';
 import DialogSlide from '../components/Dialog.js';
 import { Spinner } from '../components/Spinner.js';
 import Api from '../api/Api.js';
@@ -12,11 +13,11 @@ import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import Button from '@material-ui/core/Button';
 import Phone from '../assets/phone4.png';
-import '../styles/Quiz.scss';
+import '../styles/Phone.scss';
 
 
 
-function Quiz() {
+export default function Quiz() {
   const [questions, updateQuestions] = useState([]);
   const [value, setValue] = useState('');
   const [randomAnswers, updateRandomAnswers] = useState([]);
@@ -47,12 +48,13 @@ function Quiz() {
   };
 
     return (
-      <div className="Quiz">
-        <Navbar className="Quiz__navbar" page="Quiz" />
-        <div className="Quiz__container">
-          <div className="Quiz__container__wrapper">
-            <img className="Quiz__container__wrapper__phone" src={Phone} alt="phone" />
-            <div className="Quiz__container__wrapper__questions">
+      <div className="Phone">
+        <div className="Phone__container">
+          <div className="Phone__container__wrapper">
+            <img className="Phone__container__wrapper__phone" src={Phone} alt="phone" />
+            <div className="Phone__container__wrapper__inner">
+              <DrawerLeft page="Phone" />
+
           {questions.map((question, index) => {
             const entities = {
              '&#039;': "'",
@@ -65,7 +67,7 @@ function Quiz() {
              "&uuml;": "ü"
            }
             return (
-            <div className='Quiz__container__wrapper__questions__question' key={index}>
+            <div className='Phone__container__wrapper__inner__question' key={index}>
               <h2> Question {index + 1} </h2>
               <FormControl component="fieldset" key={index} >
                 <FormLabel component="legend">{question.question.replace(/&#?\w+;/g, match => entities[match])}</FormLabel>
@@ -96,5 +98,3 @@ function Quiz() {
       </div>
     );
 }
-
-export default Quiz;
