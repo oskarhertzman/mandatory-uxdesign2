@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -14,9 +13,9 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export default function DialogSlide({numIncorrect, numCorrect, quizLength}) {
   const [open, setOpen] = useState(false);
-  const [localGames, setLocalGames] = useState(parseInt(localStorage.getItem('games_played'),10) || '');
-  const [localCorrect, setLocalCorrect] = useState(parseInt(localStorage.getItem('correct_answers'),10) || '');
-  const [localIncorrect, setLocalIncorrect] = useState(parseInt(localStorage.getItem('incorrect_answers'),10) || '');
+  const [localGames] = useState(parseInt(localStorage.getItem('games_played'),10) || '');
+  const [localCorrect] = useState(parseInt(localStorage.getItem('correct_answers'),10) || '');
+  const [localIncorrect] = useState(parseInt(localStorage.getItem('incorrect_answers'),10) || '');
 
 
    const handleClickOpen = () => {
@@ -34,7 +33,7 @@ export default function DialogSlide({numIncorrect, numCorrect, quizLength}) {
   };
 
   return (
-    <div>
+    <div className="Phone__container__wrapper__inner__content__submit" >
       <Button variant="contained" color="primary" onClick={handleClickOpen}>
         Submit
       </Button>
@@ -46,10 +45,10 @@ export default function DialogSlide({numIncorrect, numCorrect, quizLength}) {
         aria-labelledby="alert-dialog-slide-title"
         aria-describedby="alert-dialog-slide-description"
       >
-        <DialogTitle id="alert-dialog-slide-title">{"Congratulations!"}</DialogTitle>
+        <DialogTitle id="alert-dialog-slide-title">{"Results"}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            You answered {numCorrect}/{quizLength} questions correct!
+            You answered {numCorrect}/{quizLength} questions correct
           </DialogContentText>
         </DialogContent>
         <DialogActions>

@@ -16,8 +16,6 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
 import HomeIcon from '@material-ui/icons/Home';
 import FormatListNumberedIcon from '@material-ui/icons/FormatListNumbered';
 import BarChartIcon from '@material-ui/icons/BarChart';
@@ -28,6 +26,8 @@ const drawerWidth = 240;
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
+    zIndex: '0',
+    overflow: 'hidden',
   },
   appBar: {
     transition: theme.transitions.create(['margin', 'width'], {
@@ -47,6 +47,9 @@ const useStyles = makeStyles(theme => ({
     flexShrink: 0,
   },
   drawerPaper: {
+    marginTop: '18px',
+    borderTopLeftRadius: '25px',
+    position: 'absolute',
     width: drawerWidth,
   },
   drawerHeader: {
@@ -74,9 +77,10 @@ export default function DrawerLeft({page}) {
   };
 
   return (
-    <div className={classes.root}>
+    <div className= {`Phone__container__wrapper__inner__drawer ${classes.root}` }>
       <CssBaseline />
       <AppBar
+
         position="relative"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
@@ -114,7 +118,7 @@ export default function DrawerLeft({page}) {
         </div>
         <Divider />
         <List>
-          {[['Home', <HomeIcon />, '/main'],
+          {[['Home', <HomeIcon />, '/'],
             ['Quiz', <FormatListNumberedIcon />, '/quiz'],
             ['Stats', <BarChartIcon />, '/stats'],
             ['About', <InfoIcon />, '/about']]

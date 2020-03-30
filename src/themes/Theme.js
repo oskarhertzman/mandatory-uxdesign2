@@ -1,6 +1,6 @@
 
 // Styling Constants
-const MainTheme = '#3f51b5';
+const MainTheme = '#3F4EB4';
 
 //Export
 export { MainTheme };

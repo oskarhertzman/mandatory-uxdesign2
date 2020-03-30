@@ -1,7 +1,7 @@
-import React, {useState, useEffect, useMemo} from 'react';
-import { trackPromise } from 'react-promise-tracker';
+    import React, { useState, useEffect } from 'react';
+import { trackPromise, usePromiseTracker } from 'react-promise-tracker';
 import Shuffle from '../utilities/Shuffle.js';
-import Navbar from '../components/Navbar.js';
+import { MainTheme } from '../themes/Theme.js'
 import DrawerLeft from '../components/Drawer.js';
 import DialogSlide from '../components/Dialog.js';
 import { Spinner } from '../components/Spinner.js';
@@ -11,7 +11,6 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
-import Button from '@material-ui/core/Button';
 import Phone from '../assets/phone4.png';
 import '../styles/Phone.scss';
 
@@ -19,10 +18,8 @@ import '../styles/Phone.scss';
 
 export default function Quiz() {
   const [questions, updateQuestions] = useState([]);
-  const [value, setValue] = useState('');
-  const [randomAnswers, updateRandomAnswers] = useState([]);
   const [correctAnswers, updateCorrectAnswers] = useState(0);
-
+  const { promiseInProgress } = usePromiseTracker();
 
   useEffect (() => {
     trackPromise(
@@ -53,8 +50,8 @@ export default function Quiz() {
           <div className="Phone__container__wrapper">
             <img className="Phone__container__wrapper__phone" src={Phone} alt="phone" />
             <div className="Phone__container__wrapper__inner">
-              <DrawerLeft page="Phone" />
-
+              <DrawerLeft page="Quiz" />
+              <div className="Phone__container__wrapper__inner__content">
           {questions.map((question, index) => {
             const entities = {
              '&#039;': "'",
@@ -67,17 +64,23 @@ export default function Quiz() {
              "&uuml;": "ü"
            }
             return (
-            <div className='Phone__container__wrapper__inner__question' key={index}>
+            <div className='Phone__container__wrapper__inner__content__question' key={index}>
               <h2> Question {index + 1} </h2>
               <FormControl component="fieldset" key={index} >
-                <FormLabel component="legend">{question.question.replace(/&#?\w+;/g, match => entities[match])}</FormLabel>
+                <FormLabel
+                  tabIndex="0"
+                  style={{color: MainTheme, fontWeight: 'bold', paddingBottom: '10px'}}
+                  component="legend">{question.question.replace(/&#?\w+;/g, match => entities[match])}
+                  </FormLabel>
                 <RadioGroup>
                   {question.all_answers.map((answer, answerIndex) => {
                     return (
                       <FormControlLabel
+                        aria-labelledby={`alert-question-title"${answerIndex}`}
                         onChange={(e) => handleChange(question.correct_answer, e , index)}
                         value={answer.replace(/&#?\w+;/g, match => entities[match]) + index}
-                        control={<Radio />} label={answer.replace(/&#?\w+;/g, match => entities[match])}
+                        control={<Radio />}
+                        label={answer.replace(/&#?\w+;/g, match => entities[match])}
                         key={answerIndex}
                         />
                       )
@@ -87,13 +90,17 @@ export default function Quiz() {
             </div>
             )
           })}
+          {
+            (promiseInProgress === false) ?
+              <DialogSlide
+                numIncorrect={questions.length - correctAnswers}
+                numCorrect={correctAnswers}
+                quizLength={questions.length} /> : null
+            }
+        </div>
         </div>
           </div>
         </div>
-        <DialogSlide
-          numIncorrect={questions.length - correctAnswers}
-          numCorrect={correctAnswers}
-          quizLength={questions.length} />
         <Spinner />
       </div>
     );

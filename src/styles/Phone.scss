@@ -26,19 +26,37 @@
         width: 465px;
       }
       &__inner {
-      width: 330px;
-      padding-left: 10px;
-      max-height: 690px;
-      overflow: auto;
+      overflow: hidden;
+      height: 800px;
+      width: 360px;
       margin-top: 50px;
-      padding-top: 70px;
+      padding-top: 18px;
       position: absolute;
-      bottom: 0;
 
 
-        &__question {
-          * {
-            max-width: 250px;
+        &__drawer {
+          margin: 0 auto;
+          border-radius: 30px 30px 0 0 ;
+        }
+
+        &__content {
+          padding-left: 20px;
+          max-height: 690px;
+          overflow: auto;
+
+          p {
+            color: $MainTheme;
+            font-size: 1rem;
+            font-weight: bold;
+          }
+          &__question {
+            * > *  {
+              max-width: 300px;
+            }
+        }
+          &__submit {
+            margin-top: 20px;
+            text-align: center;
           }
        }
       }
