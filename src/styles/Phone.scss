@@ -44,11 +44,16 @@
           max-height: 690px;
           overflow: auto;
 
+          #about {
+            color: black;
+          }
           p {
             color: $MainTheme;
             font-size: 1rem;
             font-weight: bold;
           }
+
+
           &__question {
             * > *  {
               max-width: 300px;

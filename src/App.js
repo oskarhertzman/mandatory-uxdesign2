@@ -11,14 +11,14 @@ import './styles/App.scss';
 export default function App() {
   return (
     <div className="App">
-    <HelmetProvider>
-       <Router>
-         <Route exact path="/" component={Main} />
-         <Route path="/quiz" component={Quiz} />
-         <Route path="/stats" component={Stats} />
-         <Route path="/about" component={About} />
-     </Router>
-   </HelmetProvider>
- </div>
+      <HelmetProvider>
+        <Router>
+          <Route exact path="/" component={Main} />
+          <Route path="/quiz" component={Quiz} />
+          <Route path="/stats" component={Stats} />
+          <Route path="/about" component={About} />
+        </Router>
+      </HelmetProvider>
+    </div>
   );
 }

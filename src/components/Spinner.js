@@ -1,6 +1,6 @@
 import React from "react";
-import { usePromiseTracker } from "react-promise-tracker";
 import Loader from "react-loader-spinner";
+import { usePromiseTracker } from "react-promise-tracker";
 import { MainTheme } from '../themes/Theme.js';
 import "../styles/Spinner.scss";
 

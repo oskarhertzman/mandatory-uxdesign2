@@ -18,15 +18,15 @@ export default function DialogSlide({numIncorrect, numCorrect, quizLength}) {
   const [localIncorrect] = useState(parseInt(localStorage.getItem('incorrect_answers'),10) || '');
 
 
-   const handleClickOpen = () => {
-     let totalGames = localGames + 1;
-     let totalCorrect = numCorrect + localCorrect;
-     let totalInCorrect = numIncorrect + localIncorrect;
-     localStorage.setItem('games_played', totalGames);
-     localStorage.setItem('correct_answers', totalCorrect);
-     localStorage.setItem('incorrect_answers', totalInCorrect);
-     setOpen(true);
-   };
+  const handleClickOpen = () => {
+    let totalGames = localGames + 1;
+    let totalCorrect = numCorrect + localCorrect;
+    let totalInCorrect = numIncorrect + localIncorrect;
+    localStorage.setItem('games_played', totalGames);
+    localStorage.setItem('correct_answers', totalCorrect);
+    localStorage.setItem('incorrect_answers', totalInCorrect);
+    setOpen(true);
+  };
 
   const handleClose = () => {
     setOpen(false);
@@ -44,15 +44,15 @@ export default function DialogSlide({numIncorrect, numCorrect, quizLength}) {
         onClose={handleClose}
         aria-labelledby="alert-dialog-slide-title"
         aria-describedby="alert-dialog-slide-description"
-      >
-        <DialogTitle id="alert-dialog-slide-title">{"Results"}</DialogTitle>
-        <DialogContent>
-          <DialogContentText id="alert-dialog-slide-description">
-            You answered {numCorrect}/{quizLength} questions correct
-          </DialogContentText>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose} color="primary" href="/quiz">
+        >
+          <DialogTitle id="alert-dialog-slide-title">{"Results"}</DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-slide-description">
+              You answered {numCorrect}/{quizLength} questions correct
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleClose} color="primary" href="/quiz">
             RE-START
           </Button>
           <Button onClick={handleClose} color="primary">
