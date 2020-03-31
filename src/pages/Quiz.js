@@ -33,11 +33,7 @@ export default function Quiz() {
   function handleChange (correct, e, index) {
     e.preventDefault()
     if (correct + index === e.target.value) {
-      console.log("correct");
       updateCorrectAnswers(correctAnswers + 1)
-    }
-    else {
-      console.log("incorrect");
     }
   };
 
