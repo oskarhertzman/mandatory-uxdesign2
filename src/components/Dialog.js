@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { buttonTheme } from '../themes/Theme.js';
+import { ThemeProvider } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -33,33 +35,35 @@ export default function DialogSlide({numIncorrect, numCorrect, quizLength}) {
   };
 
   return (
-    <div className="Phone__container__wrapper__inner__content__submit" >
-      <Button variant="contained" color="primary" onClick={handleClickOpen}>
-        Submit
-      </Button>
-      <Dialog
-        open={open}
-        TransitionComponent={Transition}
-        keepMounted
-        onClose={handleClose}
-        aria-labelledby="alert-dialog-slide-title"
-        aria-describedby="alert-dialog-slide-description"
-        >
-          <DialogTitle id="alert-dialog-slide-title">{"Results"}</DialogTitle>
-          <DialogContent>
-            <DialogContentText id="alert-dialog-slide-description">
-              You answered {numCorrect}/{quizLength} questions correct
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleClose} color="primary" href="/quiz">
-            RE-START
-          </Button>
-          <Button onClick={handleClose} color="primary">
-            CLOSE
-          </Button>
-        </DialogActions>
-      </Dialog>
-    </div>
+    <ThemeProvider theme={buttonTheme}>
+      <div className="Phone__container__wrapper__inner__content__submit" >
+        <Button variant="contained" color="primary" onClick={handleClickOpen}>
+          Submit
+        </Button>
+        <Dialog
+          open={open}
+          TransitionComponent={Transition}
+          keepMounted
+          onClose={handleClose}
+          aria-labelledby="alert-dialog-slide-title"
+          aria-describedby="alert-dialog-slide-description"
+          >
+            <DialogTitle id="alert-dialog-slide-title">{"Results"}</DialogTitle>
+            <DialogContent>
+              <DialogContentText id="alert-dialog-slide-description">
+                You answered {numCorrect}/{quizLength} questions correct
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose} color="primary" href="/quiz">
+              RE-START
+            </Button>
+            <Button onClick={handleClose} color="primary">
+              CLOSE
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </div>
+  </ThemeProvider>
   );
 }

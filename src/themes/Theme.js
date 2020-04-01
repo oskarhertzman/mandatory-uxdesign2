@@ -1,9 +1,14 @@
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, createMuiTheme } from '@material-ui/core/styles';
+
 
 // Styling Constants
-const drawerWidth = 240;
-export const MainTheme = '#3F4EB4';
+export const MainTheme = '#57518A';
 export const SecondTheme = 'rgba(0, 0, 0, 0.54);';
+export const buttonTheme = createMuiTheme({
+  palette: {
+    primary: {500: MainTheme},
+  },
+});
 export const entities = {
   '&#039;': "'",
   '&quot;': '"',
@@ -14,15 +19,15 @@ export const entities = {
   "&amp;": "&" ,
   "&uuml;": "ü"
 }
+const drawerWidth = 240;
 
 // Themes
-export const startBtnStyle = makeStyles(theme => ({
+export const startBtnPosition = makeStyles(theme => ({
   toQuiz: {
     position: 'absolute',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    backgroundColor: MainTheme,
   },
 }));
 export const drawerStyle = makeStyles(theme => ({
@@ -30,6 +35,7 @@ export const drawerStyle = makeStyles(theme => ({
     display: 'flex',
     zIndex: '0',
     overflow: 'hidden',
+    backgroundColor: MainTheme,
   },
   appBar: {
     transition: theme.transitions.create(['margin', 'width'], {
@@ -37,7 +43,8 @@ export const drawerStyle = makeStyles(theme => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
   },
-  menuButton: {
+  toolBar: {
+    backgroundColor: MainTheme,
   },
   hide: {
     display: 'none',

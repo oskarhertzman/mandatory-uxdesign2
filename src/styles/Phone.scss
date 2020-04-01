@@ -2,7 +2,6 @@
 
 
 .Phone {
-  background-color: $MainTheme;
   height: 100vh;
   position: relative;
   &__container {
@@ -10,7 +9,6 @@
     width: 100%;
     margin:  auto;
     text-align: center;
-
     &__wrapper {
       position: relative;
       display: flex;
@@ -18,9 +16,7 @@
       text-align: left;
       margin-left: auto;
       margin-right: auto;
-
       box-sizing: border-box;
-
       &__phone {
         vertical-align: middle;
         width: 465px;
@@ -32,18 +28,14 @@
       margin-top: 50px;
       padding-top: 18px;
       position: absolute;
-
-
         &__drawer {
           margin: 0 auto;
           border-radius: 30px 30px 0 0 ;
         }
-
         &__content {
           padding-left: 20px;
           max-height: 690px;
           overflow: auto;
-
           #about {
             color: black;
           }
@@ -52,8 +44,6 @@
             font-size: 1rem;
             font-weight: bold;
           }
-
-
           &__question {
             * > *  {
               max-width: 300px;
@@ -68,7 +58,6 @@
     }
   }
 }
-
 ::-webkit-scrollbar {
     width: 14px;
     height: 18px;

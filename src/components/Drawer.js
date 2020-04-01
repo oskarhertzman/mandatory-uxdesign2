@@ -44,7 +44,7 @@ export default function DrawerLeft({page}) {
           [classes.appBarShift]: open,
         })}
         >
-          <Toolbar>
+          <Toolbar className={classes.toolBar}>
             <IconButton
               color="inherit"
               aria-label="open drawer"
