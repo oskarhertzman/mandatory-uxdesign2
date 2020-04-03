@@ -19,7 +19,7 @@ export const entities = {
   "&amp;": "&" ,
   "&uuml;": "ü"
 }
-const drawerWidth = 240;
+
 
 // Themes
 export const startBtnPosition = makeStyles(theme => ({
@@ -50,20 +50,19 @@ export const drawerStyle = makeStyles(theme => ({
     display: 'none',
   },
   drawer: {
-    width: drawerWidth,
+    width: 240,
     flexShrink: 0,
   },
   drawerPaper: {
     marginTop: '18px',
     borderTopLeftRadius: '25px',
     position: 'absolute',
-    width: drawerWidth,
+    width: 240,
   },
   drawerHeader: {
     display: 'flex',
     alignItems: 'center',
     padding: theme.spacing(0, 1),
-    // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
   },
@@ -71,3 +70,11 @@ export const drawerStyle = makeStyles(theme => ({
     color: MainTheme,
   }
 }));
+export const statsStyles = makeStyles({
+  table: {
+    minWidth: 250,
+  },
+  value: {
+    color: MainTheme
+  }
+});

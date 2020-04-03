@@ -48,7 +48,7 @@ export default function Quiz() {
               {questions.map((question, index) => {
                 return (
                   <div className='Phone__container__wrapper__inner__content__question' key={index}>
-                    <h2> Question {index + 1} </h2>
+                    <h2 tabIndex="0"> Question {index + 1} </h2>
                     <FormControl component="fieldset" key={index} >
                       <FormLabel
                         tabIndex="0"
@@ -59,6 +59,7 @@ export default function Quiz() {
                         {question.all_answers.map((answer, answerIndex) => {
                           return (
                             <FormControlLabel
+                              tabIndex="0"
                               aria-labelledby={`alert-question-title"${answerIndex}`}
                               onChange={(e) => handleChange(question.correct_answer, e , index)}
                               value={answer.replace(/&#?\w+;/g, match => entities[match]) + index}

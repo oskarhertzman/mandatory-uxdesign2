@@ -36,17 +36,23 @@
           padding-left: 20px;
           max-height: 690px;
           overflow: auto;
-          #about {
+          &--stats {
+            padding-left: 0;
+          }
+          &__about p {
+            max-width: 330px;
+            font-weight: 400;
             color: black;
           }
-          p {
-            color: $MainTheme;
-            font-size: 1rem;
-            font-weight: bold;
-          }
+      
           &__question {
             * > *  {
               max-width: 300px;
+            }
+            p {
+              color: $MainTheme;
+              font-size: 1rem;
+              font-weight: bold;
             }
         }
           &__submit {

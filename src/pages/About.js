@@ -14,7 +14,10 @@ export default function About() {
             <DrawerLeft page="About" />
             <div className="Phone__container__wrapper__inner__content">
               <h2 tabIndex="0">Quiz App</h2>
-              <p tabIndex="0" id="about">"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
+              <div className="Phone__container__wrapper__inner__content__about">
+                <p tabIndex="0">Made by me, Oskar Hertzman.</p>
+                <p tabIndex="0">Feel free to check out my <a href="https://github.com/oskarhertzman">Github</a></p>
+              </div>
             </div>
           </div>
         </div>

@@ -19,6 +19,7 @@ export default function App() {
           <Route path="/about" component={About} />
         </Router>
       </HelmetProvider>
+      <p id="info">Made with <a href="https://reactjs.org/docs/hooks-intro.html">React Hooks</a>, <a href="https://material-ui.com/">Material UI </a>and <a href= "https://opentdb.com/">Open Trivia DB API</a></p>
     </div>
   );
 }
