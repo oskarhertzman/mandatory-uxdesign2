@@ -1,0 +1,15 @@
+@import "./Variables";
+
+body {
+  height: 100vh;
+  @include gradient;
+  #info {
+    font-size: 16px;
+    color: white;
+    padding-right: 40px;
+    float: right;
+  }
+  #info a {
+    color: $SecondTheme;
+  }
+}
